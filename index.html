@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dragon Repeller — Remastered</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="game" class="container">
+    <aside class="sidebar card">
+      <div class="logo">Dragon Repeller</div>
+
+      <div class="card stats">
+        <div class="stat-row">
+          <div class="label">XP</div>
+          <div class="value" id="xpText">0</div>
+        </div>
+        <div class="stat-row">
+          <div class="label">Gold</div>
+          <div class="value" id="goldText">50</div>
+        </div>
+        <div class="stat-row">
+          <div class="label">Health</div>
+          <div class="value" id="healthText">100</div>
+        </div>
+
+        <!-- NEW multi-bar health system -->
+        <div id="playerHealthBars"></div>
+      </div>
+
+      <div class="card controls">
+        <button id="button1" class="btn btn-primary">Go to Store</button>
+        <button id="button2" class="btn btn-primary">Go to Cave</button>
+        <button id="button3" class="btn btn-primary">Fight Dragon</button>
+      </div>
+
+      <div class="card inventory">
+        <div class="inv-title">Inventory</div>
+        <ul id="inventory" class="inv-list">
+          <li class="inv-item"><img src="assets/icons/stick.png" alt="" class="inv-icon"> Stick</li>
+        </ul>
+      </div>
+
+      <div class="card tips">Tip: Farm Slimes for XP and gold. Buy better weapons to deal more damage.</div>
+    </aside>
+
+    <main class="main">
+      <div id="message" class="card message">Welcome to Dragon Repeller. Defeat the dragon blocking the town gate.</div>
+
+      <div id="monsterStats" class="card monster-card hidden">
+        <div class="monster-left">
+          <div class="monster-avatar">
+            <img id="monsterImage" src="" alt="monster">
+          </div>
+        </div>
+        <div class="monster-right">
+          <div class="m-name" id="monsterName"></div>
+          <div class="m-level" id="m-level"></div>
+          <div class="m-hp">HP: <span id="monsterHealth"></span></div>
+          <div class="health-bar">
+            <div id="monsterHealthFill" class="health-fill monster"></div>
+          </div>
+
+          <div class="monster-actions">
+            <button id="action1" class="btn btn-primary">Action 1</button>
+            <button id="action2" class="btn btn-ghost">Action 2</button>
+            <button id="action3" class="btn btn-ghost">Action 3</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Damage popup container -->
+  <div id="damagePopups" class="damage-popups"></div>
+
+  <!-- Sounds (place matching files in assets/sfx/) -->
+  <audio id="sfx-attack" src="assets/sfx/attack.mp3"></audio>
+  <audio id="sfx-hit" src="assets/sfx/hit.mp3"></audio>
+  <audio id="sfx-death" src="assets/sfx/death.mp3"></audio>
+  <audio id="sfx-buy" src="assets/sfx/buy.mp3"></audio>
+  <audio id="sfx-level" src="assets/sfx/level.mp3"></audio>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+</body>
+</html>
+
