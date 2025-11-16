@@ -252,76 +252,111 @@ body{
 }
 
 /* MOBILE — scrolling ENABLED */
+/* MOBILE — fit everything in 1 screen, no scroll */
 @media (max-width: 880px) {
 
   html, body {
-    height: auto; 
-    overflow: auto; /* ← FIXED: scrolling allowed */
+    height: 100vh;
+    overflow: hidden; /* No scrolling allowed */
+    padding: 0;
+    margin: 0;
   }
 
   .container {
-    grid-template-columns: 1fr;
-    padding: 0;
-    gap: 10px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 6px;
+  }
+
+  /* Sidebar and main stack vertically */
+  .sidebar, .main {
+    padding: 6px;
+    gap: 6px;
   }
 
   .sidebar {
     order: 2;
-    padding: 8px;
-    gap: 8px;
   }
 
   .main {
     order: 1;
-    padding: 8px;
-    gap: 10px;
+    flex: 1;              /* Expand main to fill center */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;     /* Prevent internal scroll */
   }
 
+  /* Message box smaller */
+  .message {
+    font-size: 12px;
+    padding: 6px;
+    flex-shrink: 0;
+  }
+
+  /* Stats compact */
+  .stats {
+    padding: 6px;
+  }
+  .stat-row {
+    margin: 2px 0;
+    font-size: 12px;
+  }
+
+  /* Controls compact */
+  .controls {
+    gap: 4px;
+  }
+  .controls button {
+    padding: 6px;
+    font-size: 12px;
+  }
+
+  /* Inventory smaller */
+  .inventory {
+    padding: 6px;
+  }
+  .inv-item {
+    padding: 4px;
+    gap: 4px;
+    font-size: 12px;
+  }
+  .inv-icon {
+    width: 14px;
+    height: 14px;
+  }
+
+  /* Monster card shrinks */
   .monster-card {
     flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 10px;
+    padding: 6px;
+    gap: 6px;
   }
 
   .monster-avatar {
-    width: 90px;
-    height: 90px;
+    width: 70px;
+    height: 70px;
   }
 
-  .stats, .controls, .inventory, .message {
-    padding: 8px;
-    border-radius: 10px;
+  .m-name {
+    font-size: 16px;
   }
 
-  .message {
-    font-size: 13px;
+  .m-level, .m-hp {
+    font-size: 12px;
   }
 
-  .stat-row {
-    margin: 4px 0;
-  }
-
-  .controls button,
+  /* Monster action buttons */
   .monster-actions button {
+    padding: 6px;
+    font-size: 12px;
     width: 100%;
-    padding: 8px;
-    margin-top: 4px;
-    font-size: 13px;
   }
 
-  .inv-icon {
-    width: 16px;
-    height: 16px;
-  }
-
-  .card {
-    padding: 10px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.4);
-  }
-
-  .health-bar {
-    height: 10px;
+  /* Player multi-health bars smaller */
+  #playerHealthBars .segment-bar {
+    height: 8px;
   }
 }
+
